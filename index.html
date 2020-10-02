@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+  <meta charset="utf-8">
+  <title>Spend calculator</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="calc-receipt-app">
+    <div class="calc-receipt-app__head">
+      <div class="transaction-value" data-transaction-value>0</div>
+    </div>
+
+    
+    <div class="calc-receipt-app__body">
+      <div class="calc-r-user-title" data-user-title></div>
+      <div class="calc-r-users">
+        <button type="button" class="calc-r-user" data-user="1">
+          <span class="calc-r-user__icon cat-b calc-r-user__icon_1"></span>
+          <span class="calc-r-user__value" data-user-value></span>
+        </button>
+
+        <div class="carc-r-users-transaction" data-arrow>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M506.134 241.843l-.018-.019-104.504-104c-7.829-7.791-20.492-7.762-28.285.068-7.792 7.829-7.762 20.492.067 28.284L443.558 236H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h423.557l-70.162 69.824c-7.829 7.792-7.859 20.455-.067 28.284 7.793 7.831 20.457 7.858 28.285.068l104.504-104 .018-.019c7.833-7.818 7.808-20.522-.001-28.314z"/></svg>
+        </div>
+
+        <button type="button" class="calc-r-user" data-user="2">
+          <span class="calc-r-user__icon calc-r-user__icon_2"></span>
+          <span class="calc-r-user__value" data-user-value></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="calc-receipt-app__footer">
+      <div class="calc-r-percent-title">Your investment</div>
+      <div class="calc-r-percents">
+        <button class="calc-r-percents__button" type="button" data-percent="33">33%</button>
+        <button class="calc-r-percents__button" type="button" data-percent="50">50%</button>
+        <button class="calc-r-percents__button" type="button" data-percent="67">67%</button>
+      </div>
+
+      <div class="calc-r-input">
+        <div class="calc-r-input__text" data-input-title></div>
+        <div class="calc-r-input__input">
+          <input type="text" placeholder="0" data-input>
+        </div>
+        <button class="calc-r-input__button" type="button" data-calc-btn>Calc</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
