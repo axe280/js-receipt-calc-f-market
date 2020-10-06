@@ -24,7 +24,7 @@
     defaultUserText: '',
     usersSum: [0, 0],
     defaultPercentText: 'Your investment',
-    defaultInputText: 'Give me your money'
+    defaultInputText: 'Your payment'
   };
 
   $userTitle.textContent = state.defaultUserText;
@@ -113,11 +113,7 @@
       state.transactionValue += sum;
       state.richestPerson = state.activeUser;
     }
-
-    if (
-      (state.richestPerson === "1" && state.activeUser === "2")
-      || (state.richestPerson === "2" && state.activeUser === "1")
-    ) {
+    else {
       state.transactionValue -= sum;
 
       if (state.transactionValue < 0) {
@@ -126,12 +122,12 @@
       }
     }
 
-    if (state.richestPerson === "1") {
+    // total of sum
+    if (state.activeUser === "1") {
       state.usersSum[0] += state.inputValue - sum;
       state.usersSum[1] += sum;
     }
-
-    if (state.richestPerson === "2") {
+    else {
       state.usersSum[0] += sum;
       state.usersSum[1] += state.inputValue - sum;
     }
