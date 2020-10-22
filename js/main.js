@@ -85,6 +85,7 @@
 
   $input.addEventListener('focus', function(event) {
     this.value = '';
+    state.inputValue = 0;
   });
   
   document.addEventListener('click', function(event) {

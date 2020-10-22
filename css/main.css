@@ -74,31 +74,49 @@ input {
 }
 
 .calc-r-user__icon {
+  position: relative;
   display: block;
   width: 60px;
   height: 60px;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  background-size: 0;
+}
+
+.calc-r-user__icon::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
   background-size: auto 100%;
 }
 
 .calc-r-user__icon_1 {
   width: 110px;
+  background-image: url('../img/cat_b-fill.svg'), url('../img/cat_g-fill.svg');
+  background-position: 0 50%, 100% 50%;
+}
+
+.calc-r-user__icon_1::before {
   background-image: url('../img/cat_b.svg'), url('../img/cat_g.svg');
   background-position: 0 50%, 100% 50%;
 }
 
-.calc-r-user.active .calc-r-user__icon_1 {
-  background-image: url('../img/cat_b-fill.svg'), url('../img/cat_g-fill.svg');
-  animation: jumpCat 3s ease infinite;
-}
-
 .calc-r-user__icon_2 {
-  background-image: url('../img/cat_b.svg');
+  background-image: url('../img/cat_b-fill.svg');
 }
 
+.calc-r-user__icon_2::before {
+  background-image: url('../img/cat_b.svg');
+  background-position: 0 50%, 100% 50%;
+}
+
+.calc-r-user.active .calc-r-user__icon_1,
 .calc-r-user.active .calc-r-user__icon_2 {
-  background-image: url('../img/cat_b-fill.svg');
+  background-size: auto 100%;
   animation: jumpCat 3s ease infinite;
 }
 
