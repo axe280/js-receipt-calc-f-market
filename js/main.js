@@ -1,4 +1,5 @@
 (function(){
+  
   const $usersElems = document.querySelectorAll('[data-user]'),
         $percentElems = document.querySelectorAll('[data-percent]'),
         $userTitle = document.querySelector('[data-user-title]'),
@@ -82,6 +83,16 @@
     state.inputValue = Number(this.value);
   });
 
+  $input.addEventListener('focus', function(event) {
+    this.value = '';
+  });
+  
+  document.addEventListener('click', function(event) {
+    if (event.target !== $input && event.target !== $calcBtn) {
+      $input.blur();
+    }
+  });
+
   // carc button handler
   $calcBtn.addEventListener('click', function(evetn) {
     if (state.activeUser === '0') {
@@ -95,6 +106,8 @@
     }
 
     calculateApp();
+
+    $input.focus();
   });
 
   const findActivePercentEl = (percent) => {
