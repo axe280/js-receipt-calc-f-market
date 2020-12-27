@@ -7,7 +7,9 @@
         $input = document.querySelector('[data-input]'),
         $arrow = document.querySelector('[data-arrow]'),
         $transactionValue = document.querySelector('[data-transaction-value]'),
-        $calcBtn = document.querySelector('[data-calc-btn]');
+        $calcBtn = document.querySelector('[data-calc-btn]'),
+        $history = document.querySelector('[data-history]'),
+        $notifications = document.querySelector('[data-notifictaions]');
 
   const numberPattern = /^\d+$/;
 
@@ -25,7 +27,7 @@
     defaultUserText: '',
     usersSum: [0, 0],
     defaultPercentText: 'Your investment',
-    defaultInputText: 'Your payment'
+    defaultInputText: 'Your payment',
   };
 
   $userTitle.textContent = state.defaultUserText;
@@ -107,6 +109,7 @@
     }
 
     calculateApp();
+    showNotification();
 
     $input.focus();
   });
@@ -148,7 +151,7 @@
 
     changeArrowDirection();
     setSumValues();
-    $transactionValue.textContent = state.transactionValue;
+    $transactionValue.textContent = `${state.transactionValue}`;
   };
 
   const changeArrowDirection = () => {
@@ -163,6 +166,34 @@
     $usersElems[0].querySelector('[data-user-value]').textContent = state.usersSum[0];
     $usersElems[1].querySelector('[data-user-value]').textContent = state.usersSum[1];
   };
+
+  const showNotification = () => {
+    const item = document.createElement('div');
+    item.className = 'value-item';
+    item.textContent = `+ ${state.inputValue}`;
+    item.style.backgroundColor = getRandomColor();
+
+    // remove notification
+    setTimeout(() => {
+      $notifications.firstChild.remove();
+    }, 3000);
+
+    $history.append(item.cloneNode(true));
+    $notifications.append(item);
+
+    window.requestAnimationFrame(() => {
+      item.classList.add('animated');
+    });
+  };
+
+  const getRandomColor = () =>  {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
   calculateApp();
 

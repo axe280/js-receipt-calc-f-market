@@ -39,7 +39,6 @@ input {
 .calc-receipt-app {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   min-height: 100%;
   width: 100%;
   max-width: 600px;
@@ -50,7 +49,12 @@ input {
 .calc-receipt-app__body,
 .calc-receipt-app__footer {
   position: relative;
-  margin: 20px 0;
+  margin: 10px 0;
+}
+
+.calc-receipt-app__body {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .calc-r-users {
@@ -248,6 +252,50 @@ input {
 
 .carc-r-users-transaction.reverse {
   transform: rotate(-180deg);
+}
+
+.app-notifications {
+  position: fixed;
+  left: 20px;
+  bottom: 25px;
+  z-index: 3;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.history-items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.history-items .value-item {
+  margin-right: 5px;
+}
+
+.value-item {
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5em;
+  color: #fff;
+  background-color: #14b354;
+  margin-bottom: 5px;
+}
+
+.app-notifications .value-item {
+  transition: opacity .3s, transform .3s;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.app-notifications .value-item.animated {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media only screen and (min-width: 360px) {
